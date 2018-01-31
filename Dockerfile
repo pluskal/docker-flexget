@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine-arm:latest
 MAINTAINER wiserain
 
 # flexget version
