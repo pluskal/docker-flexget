@@ -1,19 +1,16 @@
-FROM alpine-arm:latest
-MAINTAINER wiserain
-
-# flexget version
-ARG FG_VERSION
+FROM easypi/alpine-arm:latest
+MAINTAINER Jan Pluskal <jan.pluskal@gmail.com> 
 
 # install frolvlad/alpine-python3
-RUN apk add --no-cache python3 && \
-	python3 -m ensurepip && \
+RUN apk add --no-cache python2 && \
+	python2 -m ensurepip && \
 	rm -r /usr/lib/python*/ensurepip && \
-	pip3 install --upgrade pip setuptools
+	pip install --upgrade pip setuptools
 
 # install flexget
 RUN apk --no-cache add ca-certificates tzdata && \
-	pip3 install --upgrade --force-reinstall --ignore-installed \
-		transmissionrpc python-telegram-bot "flexget==${FG_VERSION}" && \
+	pip install --upgrade --force-reinstall --ignore-installed \
+		transmissionrpc python-telegram-bot "flexget" && \
 	rm -r /root/.cache
 
 # copy local files

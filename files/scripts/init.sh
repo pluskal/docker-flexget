@@ -20,7 +20,7 @@ if [ -n "${PUID}" ] && [ -n "${PGID}" ]; then
   
   flex_group=$(getent group "${PGID}" | cut -d: -f1)
 
-  if [ -z "$(getent passwd "${PUID}")" ]; then
+  if [ -z "$(getent passwd "${PUID}")" ];  then
     adduser -D -H -u "${PUID}" flexget "${flex_group}"
   fi
 
