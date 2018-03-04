@@ -1,4 +1,4 @@
-FROM easypi/alpine-arm:latest
+FROM aarch64/alpine:latest 
 MAINTAINER Jan Pluskal <jan.pluskal@gmail.com> 
 
 # install frolvlad/alpine-python3
